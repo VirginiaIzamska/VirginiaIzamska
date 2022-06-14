@@ -7,22 +7,28 @@ public class Task12 {
 
         Scanner sc = new Scanner(System.in);
 
-        String [] arr = sc.nextLine().split(" ");
-        int n = Integer.parseInt(sc.nextLine());
+        int [] arr = Arrays
+                .stream(sc.nextLine().split(" "))
+                .mapToInt(e -> Integer.parseInt(e)).toArray();
 
-        for (int i = 1; i <= n; i++){
-            String firstElement = arr[0];
 
-            for (int j = 0; j < arr.length -1; j++){
-                arr[j] = arr[j + 1];
+        for (int i = 0; i < arr.length; i++){
+            int currentlement =  arr[i];
+            boolean isBiggerThan = true;
+            for (int j = i+1; j < arr.length; j++){
+
+                if (currentlement <= arr[j]){
+                    isBiggerThan = false;
+                }
 
             }
-            arr[arr.length -1] = firstElement;
+            if (isBiggerThan){
+                System.out.print(currentlement + " ");
+            }
         }
 
-        for (String item : arr){
-            System.out.print(item + " ");
-        }
+
+
 
     }
 
