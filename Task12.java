@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Task12 {
@@ -6,39 +7,22 @@ public class Task12 {
 
         Scanner sc = new Scanner(System.in);
 
+        String [] arr = sc.nextLine().split(" ");
         int n = Integer.parseInt(sc.nextLine());
-        int[] firstArr = new int[n];
-        int[] secondArr = new int[n];
 
+        for (int i = 1; i <= n; i++){
+            String firstElement = arr[0];
 
-        for (int i = 0; i < n; i ++) {
-            int firstNum;
-            int secondNum;
-            if (i % 2 == 0) {
-                firstNum = sc.nextInt();
-                firstArr[i] = firstNum;
-                 secondNum = sc.nextInt();
-                secondArr[i] = secondNum;
-            } else {
+            for (int j = 0; j < arr.length -1; j++){
+                arr[j] = arr[j + 1];
 
-                firstNum = sc.nextInt();
-                secondArr[i] = firstNum;
-                secondNum = sc.nextInt();
-                firstArr[i] = secondNum;
             }
-
-
+            arr[arr.length -1] = firstElement;
         }
 
-
-       for (int item : firstArr){
-           System.out.print(item + " ");
-       }
-        System.out.println();
-        for (int item : secondArr){
+        for (String item : arr){
             System.out.print(item + " ");
         }
-
 
     }
 
